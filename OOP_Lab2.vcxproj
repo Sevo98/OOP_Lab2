@@ -147,10 +147,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Struct.cpp" />
     <ClCompile Include="Exception Handling.cpp" />
     <ClCompile Include="OOP_Lab2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Struct.h" />
     <ClInclude Include="Exception Handling.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
