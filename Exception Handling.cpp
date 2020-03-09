@@ -14,6 +14,8 @@ void OutputStorage(double* values, int count)
 
 void Sort(double* values, int count)
 {
+	if (count <= 0)
+		throw "Exception catched!";
 	double swap;
 	for (int i = 0; i < count; i++)
 	{
@@ -27,6 +29,7 @@ void Sort(double* values, int count)
 			}
 		}
 	}
+	
 }
 
 void DemoSort()
@@ -36,36 +39,28 @@ void DemoSort()
 	
 	OutputStorage(values, count);
 	
-	if (count <= 0)
-		throw "Exception catched!";
-	Sort(values, count);
-	/*try 
+	try
 	{
 		Sort(values, count);
+		cout << "\nОтсортированный массив: " << endl;
+		OutputStorage(values, count);
 	}
-	catch (exception& e)
+	catch (...)
 	{
-		cout << e.what() << "Exception catched" << endl;
-	}*/
-	
-
-	cout << "\nОтсортированный массив: " << endl;
-	OutputStorage(values, count);
+		cout << "Exception catched!" << endl;
+	}
 
 	cout << "Присваеваем count значение -1" << endl;
 	count = -1;
 
-	if (count <= 0)
-		throw "Exception catched!";
-	Sort(values, count);
-	/*try
+	try
 	{
 		Sort(values, count);
+		cout << "\nОтсортированный массив: " << endl;
+		OutputStorage(values, count);
 	}
-	catch (const exception& e)
+	catch (...)
 	{
-		cout << e.what() << "Exception catched" << endl;
-		cout << "Ошибка!" << endl;
-	}*/
-	OutputStorage(values, count);
+		cout << "Exception catched!" << endl;
+	}
 }
