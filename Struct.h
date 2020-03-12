@@ -14,3 +14,11 @@ struct Contact;
 struct Song;
 
 struct Discipline;
+
+void DemoRectangle();
+void DemoFlight();
+void DemoMovie();
+void DemoTime();
+void DemoContact();
+void DemoSong();
+void DemoDiscipline();

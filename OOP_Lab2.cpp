@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 #include "Exception Handling.h"
-
+#include "Struct.h"
 using namespace std;
 
 int main()
@@ -28,6 +28,54 @@ int main()
 			DemoSort();
 		} break;
 
+		case 2:
+		{
+			while (true)
+			{
+				cout << "1. Прямоугольник" << endl;
+				cout << "2. Рейс" << endl;
+				cout << "3. Фильм" << endl;
+				cout << "4. Время" << endl;
+				cout << "5. Контакты" << endl;
+				cout << "6. Плеер" << endl;
+				cout << "7. Инфомация о предмете" << endl;
+
+				cin >> number;
+
+				switch (number)
+				{
+				case 1:
+					{
+					DemoRectangle();
+					} break;
+
+				case 2:
+					{
+					DemoFlight();
+					} break;
+				case 3:
+					{
+					DemoMovie();
+					} break;
+				case 4:
+					{
+					DemoTime();
+					} break;
+				case 5:
+					{
+					DemoContact();
+					} break;
+				case 6:
+					{
+					DemoSong();
+					} break;
+				case 7:
+					{
+					DemoDiscipline();
+					} break;
+				}
+			}
+		}
 
 
 
