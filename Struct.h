@@ -22,3 +22,4 @@ void DemoTime();
 void DemoContact();
 void DemoSong();
 void DemoDiscipline();
+void WrongPointers();

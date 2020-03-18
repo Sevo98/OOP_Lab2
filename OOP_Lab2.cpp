@@ -13,8 +13,8 @@ int main()
 	{
 		int number = 0;
 		cout << "1. Обработка исключений" << endl;
-		cout << "2. Создание структур и объектов структур" << endl;
-		cout << "3. Работа с объектами структур через указатели" << endl;
+		cout << "2. Создание структур и объектов структур \nРабота с объектами структур через указатели" << endl;
+		cout << "3. WrongPointers()" << endl;
 		cout << "4. Структуры и функции" << endl;
 		cout << "5. Структуры и динамическая память" << endl;
 		cout << "6. Функции-конструкторы" << endl;
@@ -47,39 +47,42 @@ int main()
 				switch (number)
 				{
 				case 1:
-					{
+				{
 					DemoRectangle();
-					} break;
+				} break;
 
 				case 2:
-					{
+				{
 					DemoFlight();
-					} break;
+				} break;
 				case 3:
-					{
+				{
 					DemoMovie();
-					} break;
+				} break;
 				case 4:
-					{
+				{
 					DemoTime();
-					} break;
+				} break;
 				case 5:
-					{
+				{
 					DemoContact();
-					} break;
+				} break;
 				case 6:
-					{
+				{
 					DemoSong();
-					} break;
+				} break;
 				case 7:
-					{
+				{
 					DemoDiscipline();
-					} break;
+				} break;
 				}
 			}
-		}
+		} break;
 
-
+		case 3:
+		{
+			WrongPointers();
+		} break;
 
 		case 0: {return -1; } break;
 

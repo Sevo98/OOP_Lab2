@@ -51,7 +51,7 @@ void DemoRectangle()
 	{
 		int value = 0;
 
-		cout << "1. Задание 2.2.3.2" << endl;
+		cout << "1. Задание 2.2.3.1, 2.2.3.2, 2.2.4.1 и 2.2.4.2" << endl;
 		cout << "2. Задание 2.2.3.3" << endl;
 
 		cin >> value;
@@ -68,6 +68,22 @@ void DemoRectangle()
 				cin >> NewRectangle.width;
 				
 				cout << "\nПрямоугольник имеет размеры: " << NewRectangle.length << "X" << NewRectangle.width << endl;
+
+				//2.2.4.1
+				Rectangle* FirstPointer;
+				FirstPointer = &NewRectangle;
+
+				cout << "2.2.4.1 \nПрямоугольник имеет размеры: " 
+					<< FirstPointer->length << "X" << FirstPointer->width 
+					<< "\nПрямоугольник имеет цвет: " << FirstPointer->color << endl;
+
+				Rectangle* SecondPointer;
+				SecondPointer = &NewRectangle;
+
+				cout << "Значение первого указателя: " << FirstPointer << "\nЗначение второго указателя: " << SecondPointer << endl;
+
+				delete FirstPointer, SecondPointer;
+
 			} break;
 		case 2:
 			{
@@ -89,7 +105,6 @@ void DemoRectangle()
 			}
 			delete[] StorRectangle;
 			} break;
-
 		}
 		
 	}
@@ -101,8 +116,8 @@ void DemoFlight()
 	{
 		int value = 0;
 
-		cout << "1. Задание 2.2.3.1" << endl;
-		cout << "2. Задание 2.2.3.2" << endl;
+		cout << "1. Задание 2.2.3.1, 2.2.3.2, 2.2.4.1 и 2.2.4.2" << endl;
+		cout << "2. Задание 2.2.3.3" << endl;
 		cin >> value;
 		cin.ignore(32767, '\n');
 		switch (value)
@@ -119,6 +134,22 @@ void DemoFlight()
 
 				cout << "Время полета рейса " << NewFlight.DeparturePoint << " - "
 					<< NewFlight.Destination << " составляет " << NewFlight.DurationTimeMin << " минут." << endl;
+
+				//2.2.4.1
+				Flight* FirstPointer;
+				FirstPointer = &NewFlight;
+				
+				cout << "2.2.4.1 \nПункт вылета: " << FirstPointer->DeparturePoint
+					<< "\nПункт назначения: " << FirstPointer->Destination
+					<< "\nВремя полета в минутах: " << FirstPointer->DurationTimeMin << endl;
+
+				Flight* SecondPointer;
+				SecondPointer = &NewFlight;
+
+				cout << "Значение первого указателя: " << FirstPointer << "\nЗначение второго указателя: " << SecondPointer << endl;
+				
+				delete FirstPointer, SecondPointer;
+
 			} break;
 			case 2:
 			{
@@ -156,7 +187,7 @@ void DemoMovie()
 	{
 		int value = 0;
 
-		cout << "1. Задание 2.2.3.2" << endl;
+		cout << "1. Задание 2.2.3.1, 2.2.3.2, 2.2.4.1 и 2.2.4.2" << endl;
 		cout << "2. Задание 2.2.3.3" << endl;
 		cin >> value;
 		cin.ignore(32767, '\n');
@@ -181,6 +212,21 @@ void DemoMovie()
 					<< NewMovie.Rating << " длится " 
 					<< NewMovie.DurationMovieMin << " минут." << endl;
 
+				//2.2.4.1
+				Movie* FirstPointer;
+				FirstPointer = &NewMovie;
+
+				cout << "2.2.4.1 \nФильм " << FirstPointer->Title << " в жанре " <<
+					FirstPointer->Genre << " с оценкой "
+					<< FirstPointer->Rating << " длится "
+					<< FirstPointer->DurationMovieMin << " минут." << endl;
+
+				Movie* SecondPointer;
+				SecondPointer = &NewMovie;
+
+				cout << "Значение первого указателя: " << FirstPointer << "\nЗначение второго указателя: " << SecondPointer << endl;
+
+				delete FirstPointer, SecondPointer;
 			} break;
 			case 2:
 			{
@@ -482,4 +528,20 @@ void DemoDiscipline()
 			}
 		}
 	}
+}
+
+//2.2.4.4
+void WrongPointers()
+{
+	Flight flight;
+	Movie movie;
+
+	Flight* flightPointer;
+	flightPointer = &flight;
+
+	Movie* moviePointer;
+	moviePointer = &movie;
+
+	//flightPointer = &movie;
+	//moviePointer = &flight;
 }
