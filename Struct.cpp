@@ -3,6 +3,10 @@
 
 using namespace std;
 
+void Exchange(Rectangle& rectangle1, Rectangle& rectangle2);
+void FindRectangle(Rectangle* rectangles, int count);
+void FindMaxRectangle(Rectangle* rectangles, int count);
+
 struct Rectangle
 {
 	double length = 0, width = 0;
@@ -52,7 +56,8 @@ void DemoRectangle()
 		int value = 0;
 
 		cout << "1. Задание 2.2.3.1, 2.2.3.2, 2.2.4.1 и 2.2.4.2" << endl;
-		cout << "2. Задание 2.2.3.3" << endl;
+		cout << "2. Задание 2.2.3.3, 2.2.5.5 и 2.2.5.6" << endl;
+		cout << "3. Задание 2.2.5.4" << endl;
 
 		cin >> value;
 
@@ -94,16 +99,46 @@ void DemoRectangle()
 			
 			for (int i = 0; i < size; i++)
 			{
-				cout << "Введите длину " << i << "-го" << " прямоугольника (положительное число):" << endl;
+				cout << "Введите длину " << i+1 << "-го" << " прямоугольника (положительное число):" << endl;
 				cin >> StorRectangle[i].length;
-				cout << "\nВведите ширину " << i << "-го" << " прямоугольника (положительное число):" << endl;
+				cout << "\nВведите ширину " << i+1 << "-го" << " прямоугольника (положительное число):" << endl;
 				cin >> StorRectangle[i].width;
 			}
 			for (int i = 0; i < size; i++)
 			{
-				cout << "\nПрямоугольник " << i << " имеет размеры: " << StorRectangle[i].length << "X" << StorRectangle[i].width << endl;
+				cout << "\nПрямоугольник " << i+1 << " имеет размеры: " << StorRectangle[i].length << "X" << StorRectangle[i].width << endl;
 			}
+
+			FindRectangle(StorRectangle, size);
+			FindMaxRectangle(StorRectangle, size);
+
 			delete[] StorRectangle;
+			} break;
+
+		case 3:
+			{
+			int size = 2;
+			Rectangle* rectangle = new Rectangle[size];
+
+			for (int i = 0; i < 2; i++)
+			{
+				cout << "Введите длину " << i+1 << "-го" << " прямоугольника (положительное число):" << endl;
+				cin >> rectangle[i].length;
+				cout << "\nВведите ширину " << i + 1 << "-го" << " прямоугольника (положительное число):" << endl;
+				cin >> rectangle[i].width;
+			}
+			
+			for (int i = 0; i < 2; i++)
+			{
+				cout << "\nПрямоугольник " << i + 1 << " имеет размеры: " << rectangle[i].length << "X" << rectangle[i].width << endl;
+			}
+			Exchange(rectangle[0], rectangle[1]);
+
+			for (int i = 0; i < 2; i++)
+			{
+				cout << "\nПрямоугольник " << i + 1 << " имеет размеры: " << rectangle[i].length << "X" << rectangle[i].width << endl;
+			}
+			delete[] rectangle;
 			} break;
 		}
 		
@@ -544,4 +579,77 @@ void WrongPointers()
 
 	//flightPointer = &movie;
 	//moviePointer = &flight;
+}
+
+void WriteRectangle(Rectangle& rectangle)
+{
+	cout << "Прямоугольник имеет размер: " << rectangle.length << "x" << rectangle.width << endl;
+}
+
+void ReadRectangle(Rectangle& rectangle)
+{
+	cout << "Введите длину прямоугольника: " << endl;
+	cin >> rectangle.length;
+	cout << "\nВведите ширину прямоугольника: " << endl;
+	cin >> rectangle.width;
+	WriteRectangle(rectangle);
+}
+
+void DemoReadAndWriteRectangles()
+{
+	Rectangle rectangle[5];
+	for (int i = 0; i < 5; i++)
+	{
+		cout << "\nПрямоугольник №" << i + 1 << endl;
+		ReadRectangle(rectangle[i]);
+	}
+}
+
+void Exchange(Rectangle& rectangle1, Rectangle& rectangle2)
+{
+	double tempLenght1 = rectangle1.length, tempWidht1 = rectangle1.width;
+	double tempLenght2 = rectangle2.length, tempWidht2 = rectangle2.width;
+
+	rectangle1.length = tempLenght2;
+	rectangle1.width = tempWidht2;
+
+	rectangle2.length = tempLenght1;
+	rectangle2.width = tempWidht1;
+}
+
+void FindRectangle(Rectangle* rectangles, int count)
+{
+	double maxLength = 0.0;
+	int maxIndex = 0;
+
+	for (int i = 0; i < count; i++)
+	{
+		if (maxLength < rectangles[i].length)
+		{
+			maxLength = rectangles[i].length;
+			maxIndex = i;
+		}
+	}
+
+	cout << "Прямоугольник с максимальной длиной: " << rectangles[maxIndex].length
+		<< "x" << rectangles[maxIndex].width << endl;
+}
+
+void FindMaxRectangle(Rectangle* rectangles, int count)
+{
+	double maxRectangle = 0.0;
+	int maxRectangleIndex = 0;
+
+	for (int i = 0; i < count; i++)
+	{
+		if (maxRectangle < rectangles[i].length * rectangles[i].width)
+		{
+			maxRectangle = rectangles[i].length * rectangles[i].width;
+			maxRectangleIndex = i;
+		}
+	}
+
+	cout << endl << "Прямоугольник с максимальной площадью имеет размер: "
+		<< rectangles[maxRectangleIndex].length << " X " << rectangles[maxRectangleIndex].width << " = "
+		<< rectangles[maxRectangleIndex].length * rectangles[maxRectangleIndex].width << endl;
 }

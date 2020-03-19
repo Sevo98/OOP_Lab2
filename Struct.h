@@ -23,3 +23,4 @@ void DemoContact();
 void DemoSong();
 void DemoDiscipline();
 void WrongPointers();
+void DemoReadAndWriteRectangles();

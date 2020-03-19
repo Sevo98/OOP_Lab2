@@ -84,6 +84,11 @@ int main()
 			WrongPointers();
 		} break;
 
+		case 4: 
+		{
+			DemoReadAndWriteRectangles();
+		} break;
+
 		case 0: {return -1; } break;
 
 		}
