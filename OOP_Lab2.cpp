@@ -89,6 +89,30 @@ int main()
 			DemoReadAndWriteRectangles();
 		} break;
 
+		case 5:
+		{
+			while (true)
+			{
+				int number = 0;
+				cout << "1. 2.2.6.1" << endl;
+				cout << "2. 2.2.6.2 и 2.2.6.3" << endl;
+
+				cin >> number;
+				switch (number)
+				{
+					case 1:
+					{
+						DemoDynamicFlight();
+					} break;
+
+					case 2:
+					{
+						DemoDynamicFlights();
+					} break;
+				}
+			}
+		}
+
 		case 0: {return -1; } break;
 
 		}

@@ -6,6 +6,7 @@ using namespace std;
 void Exchange(Rectangle& rectangle1, Rectangle& rectangle2);
 void FindRectangle(Rectangle* rectangles, int count);
 void FindMaxRectangle(Rectangle* rectangles, int count);
+void FindShorterFlights(Flight* flights, int count);
 
 struct Rectangle
 {
@@ -652,4 +653,65 @@ void FindMaxRectangle(Rectangle* rectangles, int count)
 	cout << endl << "Прямоугольник с максимальной площадью имеет размер: "
 		<< rectangles[maxRectangleIndex].length << " X " << rectangles[maxRectangleIndex].width << " = "
 		<< rectangles[maxRectangleIndex].length * rectangles[maxRectangleIndex].width << endl;
+}
+
+void DemoDynamicFlight()
+{
+	Flight* flight = new Flight;
+	
+	flight->DeparturePoint = "Москва";
+	flight->Destination = "Санкт-Петербург";
+	flight->DurationTimeMin = 45;
+
+	cout << "Рейс " << flight->DeparturePoint
+		<< " - " << flight->Destination
+		<< " находится в полете " << flight->DurationTimeMin << " минут." << endl;
+	delete flight;
+}
+
+void DemoDynamicFlights()
+{
+	Flight* StorFlight = new Flight[4];
+
+	for (int i = 0; i < 4; i++)
+	{
+		cin.ignore(32767, '\n');
+		cout << "Введите данные " << i + 1 << "-го рейса:" << endl;
+		cout << "Точка отправления:" << endl;
+		getline(cin, StorFlight[i].DeparturePoint);
+		cout << "\nТочка назначения:" << endl;
+		getline(cin, StorFlight[i].Destination);
+		cout << "\nВремя полета:" << endl;
+		cin >> StorFlight[i].DurationTimeMin;
+	}
+
+	for (int i = 0; i < 4; i++)
+	{
+		cout << "Рейс " << i+1 << " " << StorFlight[i].DeparturePoint
+			<< " - " << StorFlight[i].Destination
+			<< " находится в полете " << StorFlight[i].DurationTimeMin << " минут." << endl;
+	}
+
+	FindShorterFlights(StorFlight, 4);
+
+	delete[] StorFlight;
+}
+
+void FindShorterFlights(Flight* flights, int count)
+{
+	int tempShort = flights[0].DurationTimeMin;
+	int tempShortIndex;
+
+	for (int i = 0; i < count; i++)
+	{
+		if (tempShort > flights[i].DurationTimeMin)
+		{
+			tempShort = flights[i].DurationTimeMin;
+			tempShortIndex = i;
+		}
+	}
+
+	cout << "\nСамый короткий рейс №" << flights[tempShortIndex].DeparturePoint
+		<< " - " << flights[tempShortIndex].Destination
+		<< " Время полета: " << flights[tempShortIndex].DurationTimeMin << endl;
 }

@@ -24,3 +24,5 @@ void DemoSong();
 void DemoDiscipline();
 void WrongPointers();
 void DemoReadAndWriteRectangles();
+void DemoDynamicFlight();
+void DemoDynamicFlights();
