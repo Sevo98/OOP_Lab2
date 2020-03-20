@@ -24,12 +24,18 @@
     <ClCompile Include="Struct.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Circle.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Exception Handling.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="Struct.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Circle.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

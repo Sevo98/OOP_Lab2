@@ -8,6 +8,19 @@ void FindRectangle(Rectangle* rectangles, int count);
 void FindMaxRectangle(Rectangle* rectangles, int count);
 void FindShorterFlights(Flight* flights, int count);
 
+Rectangle* MakeRectangle(double lenght, double width, string color);
+Rectangle* CopyRectangle(Rectangle rectangles);
+
+Flight* MakeFlight(string DepaturePoint, string Destination, int DurationTimeMin);
+Flight* CopyFlight(Flight flights);
+
+Movie* MakeMovie(string Title, string Genre, int YeasIssue, int DurationTimeMin, double Rating);
+Movie* CopyMovie(Movie movies);
+
+Time* MakeTime(int Hour, int Min, int Sec);
+Time* CopyTime(Time times);
+
+
 struct Rectangle
 {
 	double length = 0, width = 0;
@@ -59,6 +72,7 @@ void DemoRectangle()
 		cout << "1. Задание 2.2.3.1, 2.2.3.2, 2.2.4.1 и 2.2.4.2" << endl;
 		cout << "2. Задание 2.2.3.3, 2.2.5.5 и 2.2.5.6" << endl;
 		cout << "3. Задание 2.2.5.4" << endl;
+		cout << "4. Задания 2.2.7.2 и 2.2.7.3" << endl;
 
 		cin >> value;
 
@@ -141,6 +155,28 @@ void DemoRectangle()
 			}
 			delete[] rectangle;
 			} break;
+
+		case 4:
+			{
+			Rectangle* rectangle1 = MakeRectangle(4.7, 5, "Black");
+			Rectangle* rectangle2 = MakeRectangle(32, 46, "Orange");
+			Rectangle* rectangle3 = MakeRectangle(7.6, 6.1, "Yellow");
+
+			Rectangle* copyRectangle1 = CopyRectangle(*rectangle1);
+			Rectangle* copyRectangle2 = CopyRectangle(*rectangle2);
+			Rectangle* copyRectangle3 = CopyRectangle(*rectangle3);
+
+			cout << "Прямоугольник имеет размеры: "
+				<< rectangle1->length << "X" << rectangle1->width
+				<< " и цвет: " << rectangle1->color << endl;
+
+			cout << "Копия прямоугольника имеет размеры: "
+				<< copyRectangle1->length << "X" << copyRectangle1->width
+				<< " и цвет: " << copyRectangle1->color << endl;
+
+			delete rectangle1, rectangle2, rectangle3;
+			delete copyRectangle1, copyRectangle2, copyRectangle3;
+			} break;
 		}
 		
 	}
@@ -154,6 +190,8 @@ void DemoFlight()
 
 		cout << "1. Задание 2.2.3.1, 2.2.3.2, 2.2.4.1 и 2.2.4.2" << endl;
 		cout << "2. Задание 2.2.3.3" << endl;
+		cout << "3. Задания 2.2.7.2 и 2.2.7.3" << endl;
+
 		cin >> value;
 		cin.ignore(32767, '\n');
 		switch (value)
@@ -213,6 +251,17 @@ void DemoFlight()
 
 				delete[] StorFlight;
 			} break;
+			case 3:
+			{
+				Flight* flight1 = MakeFlight("Москва", "Санкт-Петербург", 45);
+				Flight* flight2 = MakeFlight("Алматы", "Новосибирск", 120);
+
+				Flight* copyFlight1 = CopyFlight(*flight1);
+				Flight* copyFlight2 = CopyFlight(*flight2);
+
+				delete flight1, flight2;
+				delete copyFlight1, copyFlight2;
+			}break;
 		}
 	}
 }
@@ -225,6 +274,8 @@ void DemoMovie()
 
 		cout << "1. Задание 2.2.3.1, 2.2.3.2, 2.2.4.1 и 2.2.4.2" << endl;
 		cout << "2. Задание 2.2.3.3" << endl;
+		cout << "3. Задания 2.2.7.2 и 2.2.7.3" << endl;
+
 		cin >> value;
 		cin.ignore(32767, '\n');
 		switch (value)
@@ -294,6 +345,17 @@ void DemoMovie()
 						<< StorMovie[i].DurationMovieMin << " минут." << endl;
 				}
 			} break;
+			case 3:
+			{
+				Movie* movie1 = MakeMovie("Крестный отец", "Драма/Криминальный фильм", 1972, 175, 8.7);
+				Movie* movie2 = MakeMovie("Криминальное чтиво", "Триллер, Комедия, Криминал", 1994, 154, 8.6);
+
+				Movie* copyMovie1 = CopyMovie(*movie1);
+				Movie* copyMovie2 = CopyMovie(*movie2);
+
+				delete movie1, movie2;
+				delete copyMovie1, copyMovie2;
+			} break;
 		}
 	}
 }
@@ -306,6 +368,8 @@ void DemoTime()
 
 		cout << "1. Задание 2.2.3.2" << endl;
 		cout << "2. Задание 2.2.3.3" << endl;
+		cout << "3. Задания 2.2.7.2 и 2.2.7.3" << endl;
+
 		cin >> value;
 		switch (value)
 		{
@@ -375,6 +439,17 @@ void DemoTime()
 						<< StorTime[i].Min << ":" << StorTime[i].Sec << endl;
 				}
 				delete[] StorTime;
+			} break;
+			case 3:
+			{
+				Time* time1 = MakeTime(22, 45, 15);
+				Time* time2 = MakeTime(17, 24, 37);
+
+				Time* copyTime1 = CopyTime(*time1);
+				Time* copyTime2 = CopyTime(*time2);
+
+				delete time1, time2;
+				delete copyTime1, copyTime2;
 			} break;
 		}
 	}
@@ -714,4 +789,80 @@ void FindShorterFlights(Flight* flights, int count)
 	cout << "\nСамый короткий рейс №" << flights[tempShortIndex].DeparturePoint
 		<< " - " << flights[tempShortIndex].Destination
 		<< " Время полета: " << flights[tempShortIndex].DurationTimeMin << endl;
+}
+
+Rectangle* MakeRectangle(double lenght, double width, string color)
+{
+	Rectangle* rectangle = new Rectangle();
+	rectangle->length = lenght;
+	rectangle->width = width;
+	rectangle->color = color;
+	return rectangle;
+}
+
+Rectangle* CopyRectangle(Rectangle rectangles)
+{
+	Rectangle* copiedRectangle = new Rectangle();
+	copiedRectangle->length = rectangles.length;
+	copiedRectangle->width = rectangles.width;
+	copiedRectangle->color = rectangles.color;
+	return copiedRectangle;
+}
+
+Flight* MakeFlight(string DepaturePoint, string Destination, int DurationTimeMin)
+{
+	Flight* flights = new Flight();
+	flights->DeparturePoint = DepaturePoint;
+	flights->Destination = Destination;
+	flights->DurationTimeMin = DurationTimeMin;
+	return flights;
+}
+
+Flight* CopyFlight(Flight flights)
+{
+	Flight* copiedFlights = new Flight();
+	copiedFlights->DeparturePoint = flights.DeparturePoint;
+	copiedFlights->Destination = flights.Destination;
+	copiedFlights->DurationTimeMin = flights.DurationTimeMin;
+	return copiedFlights;
+}
+
+Movie* MakeMovie(string Title, string Genre, int YeasIssue, int DurationTimeMin, double Rating)
+{
+	Movie* movies = new Movie();
+	movies->Title = Title;
+	movies->Genre = Genre;
+	movies->YearIssue = YeasIssue;
+	movies->DurationMovieMin = DurationTimeMin;
+	movies->Rating = Rating;
+	return movies;
+}
+
+Movie* CopyMovie(Movie movies)
+{
+	Movie* copiedMovies = new Movie();
+	copiedMovies->Title = movies.Title;
+	copiedMovies->Genre = movies.Genre;
+	copiedMovies->YearIssue = movies.YearIssue;
+	copiedMovies->DurationMovieMin = movies.DurationMovieMin;
+	copiedMovies->Rating = movies.Rating;
+	return copiedMovies;
+}
+
+Time* MakeTime(int Hour, int Min, int Sec)
+{
+	Time* times = new Time();
+	times->Hour = Hour;
+	times->Min = Min;
+	times->Sec = Sec;
+	return times;
+}
+
+Time* CopyTime(Time times)
+{
+	Time* copiedTimes = new Time();
+	copiedTimes->Hour = times.Hour;
+	copiedTimes->Min = times.Min;
+	copiedTimes->Sec = times.Sec;
+	return copiedTimes;
 }

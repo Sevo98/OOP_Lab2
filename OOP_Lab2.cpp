@@ -2,6 +2,7 @@
 #include "Exception Handling.h"
 #include "Struct.h"
 #include <windows.h>
+#include "Circle.h"
 using namespace std;
 
 int main()
@@ -112,6 +113,11 @@ int main()
 				}
 			}
 		}
+
+		case 6:
+		{
+		
+		} break;
 
 		case 0: {return -1; } break;
 
