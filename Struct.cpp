@@ -103,7 +103,8 @@ void DemoRectangle()
 				cout << "Значение первого указателя: " << FirstPointer << "\nЗначение второго указателя: " << SecondPointer << endl;
 
 				delete FirstPointer, SecondPointer;
-
+				 
+				 
 			} break;
 		case 2:
 			{
@@ -128,6 +129,8 @@ void DemoRectangle()
 			FindMaxRectangle(StorRectangle, size);
 
 			delete[] StorRectangle;
+			 
+			 
 			} break;
 
 		case 3:
@@ -154,6 +157,8 @@ void DemoRectangle()
 				cout << "\nПрямоугольник " << i + 1 << " имеет размеры: " << rectangle[i].length << "X" << rectangle[i].width << endl;
 			}
 			delete[] rectangle;
+			 
+			 
 			} break;
 
 		case 4:
@@ -176,6 +181,8 @@ void DemoRectangle()
 
 			delete rectangle1, rectangle2, rectangle3;
 			delete copyRectangle1, copyRectangle2, copyRectangle3;
+			 
+			 
 			} break;
 		}
 		
@@ -223,7 +230,8 @@ void DemoFlight()
 				cout << "Значение первого указателя: " << FirstPointer << "\nЗначение второго указателя: " << SecondPointer << endl;
 				
 				delete FirstPointer, SecondPointer;
-
+				 
+				 
 			} break;
 			case 2:
 			{
@@ -245,11 +253,13 @@ void DemoFlight()
 
 				for (int i = 0; i < size; i++)
 				{
-					cout << "Время полета рейса №" << i << endl << StorFlight[i].DeparturePoint << " - "
+					cout << "Время полета рейса №" << i+1 << endl << StorFlight[i].DeparturePoint << " - "
 						<< StorFlight[i].Destination << " составляет " << StorFlight[i].DurationTimeMin << " минут." << endl;
 				}
 
 				delete[] StorFlight;
+				 
+				 
 			} break;
 			case 3:
 			{
@@ -261,6 +271,8 @@ void DemoFlight()
 
 				delete flight1, flight2;
 				delete copyFlight1, copyFlight2;
+				 
+
 			}break;
 		}
 	}
@@ -314,6 +326,8 @@ void DemoMovie()
 				cout << "Значение первого указателя: " << FirstPointer << "\nЗначение второго указателя: " << SecondPointer << endl;
 
 				delete FirstPointer, SecondPointer;
+				 
+				 
 			} break;
 			case 2:
 			{
@@ -344,6 +358,8 @@ void DemoMovie()
 						<< StorMovie[i].Rating << " длится "
 						<< StorMovie[i].DurationMovieMin << " минут." << endl;
 				}
+				 
+				 
 			} break;
 			case 3:
 			{
@@ -355,6 +371,8 @@ void DemoMovie()
 
 				delete movie1, movie2;
 				delete copyMovie1, copyMovie2;
+				 
+				 
 			} break;
 		}
 	}
@@ -400,6 +418,8 @@ void DemoTime()
 
 				cout << endl << NewTime.Hour << ":" 
 					<< NewTime.Min << ":" << NewTime.Sec << endl;
+				 
+				 
 			} break;
 			case 2:
 			{
@@ -439,6 +459,8 @@ void DemoTime()
 						<< StorTime[i].Min << ":" << StorTime[i].Sec << endl;
 				}
 				delete[] StorTime;
+				 
+				 
 			} break;
 			case 3:
 			{
@@ -450,6 +472,8 @@ void DemoTime()
 
 				delete time1, time2;
 				delete copyTime1, copyTime2;
+				 
+				 
 			} break;
 		}
 	}
@@ -485,6 +509,9 @@ void DemoContact()
 					"\nEmail: " << NewContact.Email <<
 					"\nДополнительная информация: \n"
 					<< NewContact.AddInf << endl;
+
+				 
+				 
 			} break;
 
 			case 2:
@@ -506,6 +533,9 @@ void DemoContact()
 					getline(cin, ContactBook[i].Email);
 					cout << "\nВведите дополнительную информацию" << endl;
 					getline(cin, ContactBook[i].AddInf);
+
+					 
+					 
 				}
 
 				for (int i = 0; i < size; i++)
@@ -518,6 +548,9 @@ void DemoContact()
 						<< ContactBook[i].AddInf << endl;
 				}
 				delete[] ContactBook;
+
+				 
+				 
 			} break;
 		}
 	}
@@ -548,6 +581,9 @@ void DemoSong()
 				cout << "Название:\n" << NewSong.SongName <<
 					"\nИсполнитель:\n" << NewSong.Artist <<
 					"\nПродолжительность:\n" << NewSong.DurationSongSec << endl;
+
+				 
+				 
 			} break;
 			case 2:
 			{
@@ -575,6 +611,9 @@ void DemoSong()
 						"\nПродолжительность:\n" << Playlist[i].DurationSongSec << endl;
 				}
 				delete[] Playlist;
+
+				 
+				 
 			} break;
 		}
 	}
@@ -607,6 +646,9 @@ void DemoDiscipline()
 					"\nПреподаватель: " << NewDiscipline.TeacherName <<
 					"\nЧасы: " << NewDiscipline.DurationDispH <<
 					"\nОценка: " << NewDiscipline.DurationDispH << endl;
+
+				 
+				 
 			} break;
 			case 2:
 			{
@@ -636,7 +678,10 @@ void DemoDiscipline()
 						"\nОценка: " << StorDiscipline[i].DurationDispH << endl;
 				}
 				delete[] StorDiscipline;
-			}
+
+				 
+				 
+			} break;
 		}
 	}
 }

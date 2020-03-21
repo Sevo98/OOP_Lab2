@@ -9,6 +9,8 @@ using namespace std;
 
 enum Colours;
 void WriteColors(Colours color);
+int CountColor(Colours* colors, int count, Colours paint);
+int CountRed(Colours* colors, int count);
 
 enum Colours
 {
@@ -29,9 +31,9 @@ int main()
 	while (true)
 	{
 		int number = 0;
-		cout << "1. Обработка исключений" << endl;
-		cout << "2. Создание структур и объектов структур \nРабота с объектами структур через указатели" << endl;
-		cout << "3. WrongPointers()" << endl;
+		cout << "1. Обработка исключений (2.2.1)" << endl;
+		cout << "2. Создание структур и объектов структур \nРабота с объектами структур через указатели\n(2.2.3.(1,2,3), 2.2.4.(1,2), 2.2.5.(4,5,6), 2.2.7.(2,3))" << endl;
+		cout << "3. WrongPointers() (2.2.4.4)" << endl;
 		cout << "4. Структуры и функции" << endl;
 		cout << "5. Структуры и динамическая память" << endl;
 		cout << "6. Функции-конструкторы" << endl;
@@ -143,9 +145,11 @@ int main()
 			{
 				WriteColors(colour[i]);
 			}
-			/*cout << "Красный цвет встречается в массиве " << CountRed(color, 6) << " раз." << endl;*/
+			cout << "Красный цвет встречается в массиве " << CountRed(colour, 6) << " раз." << endl;
 			WriteColors(Yellow);
-			/*cout << " встречается в массиве " << CountColor(color, 6, Yellow) << " раз." << endl;*/
+			cout << " встречается в массиве " << CountColor(colour, 6, Yellow) << " раз." << endl;
+			system("pause");
+			system("cls");
 		} break;
 
 		case 8:
@@ -184,11 +188,8 @@ void DemoEnums()
 
 void WriteColors(Colours color)
 {
-	Colours StorColors[6]{ Red,Orange,Yellow,Green,Blue,Purple };
-	for (int i = 0; i < 6; i++)
+	switch (color)
 	{
-		switch (color)
-		{
 		case Red:
 		{
 			cout << "Красный цвет" << endl;
@@ -218,7 +219,6 @@ void WriteColors(Colours color)
 		{
 			cout << "Фиолетовый цвет" << endl;
 			break;
-		}
 		}
 	}
 }
