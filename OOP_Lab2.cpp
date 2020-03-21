@@ -129,9 +129,9 @@ int main()
 			{
 				WriteColors(color[i]);
 			}
-			cout << "Красный цвет встречается в массиве " << CountRed(color, 6) << " раз. " << endl << endl;
+			cout << "Красный цвет встречается в массиве " << CountRed(color, 6) << " раз." << endl;
 			WriteColors(Yellow);
-			cout << "встречается в массиве " << CountColor(color, 6, Yellow) << " раз " << endl;
+			cout << " встречается в массиве " << CountColor(color, 6, Yellow) << " раз." << endl;
 		} break;
 
 		case 0: {return -1; } break;
