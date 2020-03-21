@@ -148,12 +148,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />
+    <ClCompile Include="Enums.cpp" />
     <ClCompile Include="Struct.cpp" />
     <ClCompile Include="Exception Handling.cpp" />
     <ClCompile Include="OOP_Lab2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h" />
+    <ClInclude Include="Enums.h" />
     <ClInclude Include="Struct.h" />
     <ClInclude Include="Exception Handling.h" />
   </ItemGroup>

@@ -3,6 +3,8 @@
 #include "Struct.h"
 #include <windows.h>
 #include "Circle.h"
+#include "Enums.h"
+#include "Enums.cpp"
 using namespace std;
 
 int main()
@@ -112,11 +114,24 @@ int main()
 					} break;
 				}
 			}
-		}
+		} break;
 
 		case 6:
 		{
-		
+			DemoTime();
+		} break;
+
+		case 7:
+		{
+			Colors color[6]{ Blue,Red,Red,Yellow,Green,Orange };
+			
+			for (int i = 0; i < 6; i++)
+			{
+				WriteColors(color[i]);
+			}
+			cout << "Красный цвет встречается в массиве " << CountRed(color, 6) << " раз. " << endl << endl;
+			WriteColors(Yellow);
+			cout << "встречается в массиве " << CountColor(color, 6, Yellow) << " раз " << endl;
 		} break;
 
 		case 0: {return -1; } break;
