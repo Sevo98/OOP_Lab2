@@ -4,8 +4,22 @@
 #include <windows.h>
 #include "Circle.h"
 #include "Enums.h"
-#include "Enums.cpp"
+#include "Struct with enums.h"
 using namespace std;
+
+enum Colours;
+void WriteColors(Colours color);
+
+enum Colours
+{
+	Red,
+	Orange,
+	Yellow,
+	Green,
+	Azure,
+	Blue,
+	Purple
+};
 
 int main()
 {
@@ -123,19 +137,124 @@ int main()
 
 		case 7:
 		{
-			Colors color[6]{ Blue,Red,Red,Yellow,Green,Orange };
+			Colours colour[6]{ Blue,Red,Red,Yellow,Green,Orange };
 			
 			for (int i = 0; i < 6; i++)
 			{
-				WriteColors(color[i]);
+				WriteColors(colour[i]);
 			}
-			cout << "Красный цвет встречается в массиве " << CountRed(color, 6) << " раз." << endl;
+			/*cout << "Красный цвет встречается в массиве " << CountRed(color, 6) << " раз." << endl;*/
 			WriteColors(Yellow);
-			cout << " встречается в массиве " << CountColor(color, 6, Yellow) << " раз." << endl;
+			/*cout << " встречается в массиве " << CountColor(color, 6, Yellow) << " раз." << endl;*/
+		} break;
+
+		case 8:
+		{
+			DemoMovieWithGenre();
 		} break;
 
 		case 0: {return -1; } break;
 
 		}
 	}
+}
+////////////////////////////////ENUMS
+void WriteColors(Colours color);
+int CountRed(Colours* colors, int count);
+int CountColor(Colours* colors, int count, Colours paint);
+void DemoEnums();
+Colours ReadColor();
+
+void DemoEnums()
+{
+	Colours colour = Orange;
+	Week day = Saturday;
+	Genre genres = Comedy;
+	StudyForm studyForm = Evening;
+	Manufacturer manufacturer = OnePlus;
+	Season season = Spring;
+
+	Colours StorColors[6]{ Red,Orange,Yellow,Green,Blue,Purple };
+	Week Week[7]{ Monday,	Tuesday,	Wednesday,	Thursday,	Friday,	Saturday,	Sunday };
+	Genre StorGenres[4]{ Comedy,	Drama,	Thriller,	Action };
+	StudyForm StudyFormStorage[4]{ Intramural,	Extramural,	Evening,Distance };
+	Manufacturer StorManufacturer[4]{ Samsung,	Apple,	Xiaomi,	OnePlus };
+	Season Seasons[4]{ Winter,	Spring,	Summer,	Authumn };
+}
+
+void WriteColors(Colours color)
+{
+	Colours StorColors[6]{ Red,Orange,Yellow,Green,Blue,Purple };
+	for (int i = 0; i < 6; i++)
+	{
+		switch (color)
+		{
+		case Red:
+		{
+			cout << "Красный цвет" << endl;
+			break;
+		}
+		case Orange:
+		{
+			cout << "Оранжевый цвет" << endl;
+			break;
+		}
+		case Yellow:
+		{
+			cout << "Желтый цвет" << endl;
+			break;
+		}
+		case Green:
+		{
+			cout << "Зеленый цвет" << endl;
+			break;
+		}
+		case Blue:
+		{
+			cout << "Синий цвет" << endl;
+			break;
+		}
+		case Purple:
+		{
+			cout << "Фиолетовый цвет" << endl;
+			break;
+		}
+		}
+	}
+}
+
+Colours ReadColor()
+{
+	int color;
+	cout << "\nВведите число от 0 до 6 (0 – красный, 1 – оранжевый, 2 – желтый, 3 – зеленый, 4 – голубой, 5 – синий, 6 – фиолетовый): " << endl;
+	cin >> color;
+
+	Colours paint = (Colours)color;
+	return paint;
+}
+
+int CountRed(Colours* colors, int count)
+{
+	int value = 0;
+	for (int i = 0; i < count; i++)
+	{
+		if (colors[i] == Red)
+		{
+			value++;
+		}
+	}
+	return value;
+}
+
+int CountColor(Colours* colors, int count, Colours paint)
+{
+	int value = 0;
+	for (int i = 0; i < count; i++)
+	{
+		if (colors[i] == paint)
+		{
+			value++;
+		}
+	}
+	return value;
 }
